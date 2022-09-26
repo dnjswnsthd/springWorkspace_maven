@@ -15,12 +15,9 @@ public class MyBatisFrameworkJUnitTest2 {
 	@Test
 	public void unit() throws Exception {
 		// 1. 설정문서를 DIContainer가 읽어들여야 한다.
-		System.out.println("=======111");
 		Reader r = Resources.getResourceAsReader("config/SqlMapConfig.xml");
-		System.out.println("=======222");
 		// 2. r을 SqlSessiongFactory에서
 		SqlSessionFactory factory = new SqlSessionFactoryBuilder().build(r);
-		System.out.println("=======333");
 		// 3. SqlSession
 		SqlSession session = factory.openSession();
 		
