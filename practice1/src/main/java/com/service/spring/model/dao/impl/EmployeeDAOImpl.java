@@ -6,11 +6,12 @@ import java.util.ArrayList;
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import com.service.spring.model.Employee;
 import com.service.spring.model.dao.EmployeeDAO;
 
-@Component
+@Repository
 public class EmployeeDAOImpl implements EmployeeDAO {
 	
 	@Autowired
