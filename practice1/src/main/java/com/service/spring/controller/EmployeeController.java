@@ -24,10 +24,12 @@ public class EmployeeController {
 		return "index";
 	}
 	
-	@GetMapping("/insertEmployee")
+	@GetMapping("/moveEmployee")
 	public String moveEmployee() {
 		return "/employee/insert_employee";
 	}
+	
+	
 	
 	@GetMapping("/moveEmployeeList")
 	public String moveEmployeeList(Model model) {

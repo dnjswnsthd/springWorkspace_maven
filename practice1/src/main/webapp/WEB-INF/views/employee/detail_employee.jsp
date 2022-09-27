@@ -11,19 +11,14 @@
 	background-color: #d3d3d3;
 }
 .tag{
-	display:inline-block;
-	width: 100px;
 	background-color: #d3d3d3;
-	text-align: center;
-	border: 1px solid black;
-}
-#id, #name, #dept{
-	margin-top: -1%;	
-	height: 18px;
 }
 
 #btn{
 	text-align: center;
+}
+td input{
+	height: 25px;
 }
 
 #delete{
@@ -44,9 +39,20 @@
 	</div>
 	<div>
 		<form method="post">
-			<span class="tag">사원번호</span><input type="text" id="num" name="num" value="${employee.num}"/><br>
-			<span class="tag">사원이름</span><input type="text" id="name" name="name" value="${employee.name}"/><br>
-			<span class="tag">부서명</span><input type="text" id="dept" name="dept" value="${employee.dept}"/>
+			<table>
+					<tr>
+						<td class="tag">사원번호</td>
+						<td><input type="text" id="num" name="num" value="${employee.num}" readonly="readonly"/></td>
+					</tr>
+					<tr>
+						<td class="tag">사원이름</td>
+						<td><input type="text" id="name" name="name" value="${employee.name}"/></td>
+					</tr>
+					<tr>
+						<td class="tag">부서명</td>
+						<td><input type="text" id="dept" name="dept" value="${employee.dept}"/></td>
+					</tr>
+			</table>
 			<div id="btn">
 				<input type="submit" value="수정" formaction="updateEmployee.do" />
 				<input type="button" value="사원목록" onclick="goSelectEmploye()">

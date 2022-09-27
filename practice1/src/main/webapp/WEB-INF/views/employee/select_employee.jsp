@@ -47,7 +47,7 @@ table {
 		</c:forEach>
 	</table>
 	<div id="foot">
-		<a href="/insertEmployee">추가 등록</a>&nbsp;
+		<a href="/moveEmployee">추가 등록</a>&nbsp;
 	</div>
 </body>
 </html>

@@ -9,16 +9,11 @@
 #head{
 	background-color: #d3d3d3;
 }
-.tag{
-	display:inline-block;
-	width: 100px;
+#tag{
 	background-color: #d3d3d3;
-	text-align: center;
-	border: 1px solid black;
 }
-#id, #name, #dept{
-	margin-top: -1%;	
-	height: 18px;
+td input{
+	height: 25px;
 }
 
 #btn{
@@ -32,9 +27,23 @@
 	</div>
 	<div>
 		<form method="post" action="insertEmployee.do">
-			<span class="tag">사원번호</span><input type="text" id="num" name="num"/><span>(사원번호 입력 형식:1403101)</span><br>
-			<span class="tag">사원이름</span><input type="text" id="name" name="name"/><br>
-			<span class="tag">부서명</span><input type="text" id="dept" name="dept"/>
+			<table>
+				<tr>
+					<td id="tag">사원번호</td>
+					<td><input type="text" id="num" name="num"/></td>
+					<td>(사원번호 입력 형식:1403101)</td>
+				</tr>
+				<tr>
+					<td id="tag">사원이름</td>
+					<td><input type="text" id="name" name="name"/></td>
+					<td></td>
+				</tr>
+				<tr>
+					<td id="tag">부서명</td>
+					<td><input type="text" id="dept" name="dept"/></td>
+					<td></td>
+				</tr>
+			</table>
 			<div id="btn">
 				<input type="submit" value="사원등록" />
 				<input type="button" value="취소" />
