@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.service.spring.model.Car;
 import com.service.spring.model.Company;
@@ -34,7 +35,6 @@ public class CarController {
 	public String moveCar(Model model) throws Exception {
 		try {
 			ArrayList <Company> al = companyService.selectCompany();
-			for(Company c : al) System.out.println(c);
 			model.addAttribute("list", al);
 			return "/car/insert_car";
 		} catch (Exception e) {
@@ -54,16 +54,23 @@ public class CarController {
 	}
 	
 	@PostMapping("insertCar.do")
-	public String insertCar(Model model, Car car, HttpServletResponse response) throws Exception {
+	public String insertCar(Model model, Car car, RedirectAttributes ra) throws Exception {
 		try {
 			carService.insertCar(car);
-			model.addAttribute("num", car.getNum());
-			return "/car/insert_success";
+			ra.addAttribute("title", "추가 성공");
+			ra.addAttribute("num", car.getNum());
+			return "redirect:/success";
 		} catch (Exception e) {
 			throw new Exception("차량 추가에 실패했습니다.(중복 or 데이터 누락)");
 		}
 	}
 	
+	@GetMapping("/success")
+	public String moveInsertSuccess(@RequestParam("num") String num, @RequestParam("title") String title, Model model) {
+		model.addAttribute("title", title);
+		model.addAttribute("num", num);
+		return "/car/success";
+	}
 	
 	@PostMapping("deleteCar.do")
 	@ResponseBody
@@ -90,11 +97,12 @@ public class CarController {
 	}
 	
 	@PostMapping("updateCar.do")
-	public String updateCar(Model model, Car car) throws Exception {
+	public String updateCar(Model model, Car car, RedirectAttributes ra) throws Exception {
 		try {
 			carService.updateCar(car);
-			model.addAttribute("num", car.getNum());
-			return "/car/update_success";
+			ra.addAttribute("title", "수정 성공");
+			ra.addAttribute("num", car.getNum());
+			return "redirect:/success";
 		} catch (Exception e) {
 			throw new Exception("차량 정보 수정에 실패했습니다.");
 		}

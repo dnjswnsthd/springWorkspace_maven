@@ -81,7 +81,7 @@ table{
 			</table>
 			<div id="btn">
 				<input type="submit" value="수정" formaction="updateCar.do" />
-				<input type="button" value="사원목록" onclick="goSelectCar()">
+				<input type="button" value="차량목록" onclick="goSelectCar()">
 				<input type="button" value="메인페이지로" onclick="goMain()">
 			</div>
 		</form>

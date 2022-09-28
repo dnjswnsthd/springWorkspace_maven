@@ -22,12 +22,17 @@
 	color: white;
 	text-align: center;
 	font-size: 1.3rem;
+	width: 80%;
+	margin: auto;'
+}
+a:link{
+	color: white;
 }
 </style>
 </head>
 <body>
 	<div id="mp">
-		<h2>자동차 관리 - ${num } 등록 성공</h2>
+		<h2>자동차 관리 - ${num } ${title }</h2>
 	</div>
 	<div id="move">
 		<a href="moveCarList">자동차 목록 조회</a>
