@@ -1,6 +1,5 @@
 package com.service.spring.controller;
 
-import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -79,10 +78,11 @@ public class CarController {
 		}
 	}
 	
+	// 동적 쿼리로 수정
 	@GetMapping("detail.do")
 	public String detailCar(Model model, Car car) throws Exception {
 		try {
-			model.addAttribute("car", carService.selectCarByNum(car.getNum()));
+			model.addAttribute("car", carService.selectCar(car.getNum()));
 			return "/car/detail_car";
 		} catch (Exception e) {
 			throw new Exception("차량 상세 조회에 실패했습니다.");

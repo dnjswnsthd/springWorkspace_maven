@@ -19,11 +19,16 @@
 		VALUES(#{num}, #{model}, #{price}, #{vcode})
 	</insert>
 	
-	<select id="selectCar" resultMap="carWithCompany">
+	<select id="selectCar" parameterType="string" resultMap="carWithCompany">
 		SELECT c.num, c.model, c.price, c.vcode, co.vendor
 		FROM car c
 		JOIN
 		company co on (c.vcode = co.vcode)
+		<where>
+			<if test="num != null">
+				num = #{num}
+			</if>
+		</where>
 	</select>
 	
 	<select id="selectCarByNum" parameterType="String" resultMap="carWithCompany">

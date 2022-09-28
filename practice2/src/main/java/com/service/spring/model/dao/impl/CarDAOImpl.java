@@ -28,8 +28,8 @@ public class CarDAOImpl implements CarDAO {
 	}
 
 	@Override
-	public Car selectCarByNum(String num) throws SQLException {
-		return sqlSession.getMapper(CarDAO.class).selectCarByNum(num);
+	public Car selectCar(String num) throws SQLException {
+		return sqlSession.getMapper(CarDAO.class).selectCar(num);
 	}
 
 	@Override

@@ -27,8 +27,8 @@ public class CarServiceImpl implements CarService {
 	}
 
 	@Override
-	public Car selectCarByNum(String num) throws SQLException {
-		return carDAO.selectCarByNum(num);
+	public Car selectCar(String num) throws SQLException {
+		return carDAO.selectCar(num);
 	}
 
 	@Override

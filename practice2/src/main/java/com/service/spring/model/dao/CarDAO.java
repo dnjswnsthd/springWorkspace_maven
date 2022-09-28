@@ -12,7 +12,7 @@ public interface CarDAO {
 	// 차량 조회 
 	public ArrayList<Car> selectCar() throws SQLException;
 	// 차량 정보 상세 보기
-	public Car selectCarByNum(String num) throws SQLException;
+	public Car selectCar(String num) throws SQLException;
 	// 차량 삭제
 	public int deleteCar(List <String> num) throws SQLException;
 	// 차량 수정
