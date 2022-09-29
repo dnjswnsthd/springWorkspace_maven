@@ -20,6 +20,4 @@ public interface CarService {
 	public int updateCar(Car car) throws SQLException;
 	// 로그인
 	public Us selectUser(Us user) throws SQLException;
-	// 회원가입
-	public int signup(Us user) throws SQLException;
 }

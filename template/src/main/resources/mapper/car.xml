@@ -58,9 +58,4 @@
 		from us
 		where id = #{id} and pw = #{pw}
 	</select>
-	
-	<insert id="signup" parameterType="us">
-		INSERT INTO us(id, pw)
-		VALUES(#{id}, #{pw})
-	</insert>
 </mapper>

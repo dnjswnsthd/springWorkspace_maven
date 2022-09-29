@@ -47,9 +47,4 @@ public class CarServiceImpl implements CarService {
 		return carDAO.selectUser(user);
 	}
 
-	@Override
-	public int signup(Us user) throws SQLException {
-		return carDAO.signup(user);
-	}
-
 }

@@ -54,11 +54,6 @@ public class CarController {
 		}
 	}
 	
-	@GetMapping("/moveSignup")
-	public String moveSignup() throws Exception {
-		return "signup";
-	}
-	
 	@GetMapping("/moveLogin")
 	public String moveLogin() throws Exception {
 		return "login";
@@ -138,17 +133,6 @@ public class CarController {
 	public String doLogout(HttpSession session) throws Exception{
 		session.invalidate();
 		return "redirect:/";
-	}
-	
-	@PostMapping("signup.do")
-	public String doSignup(Us user) throws Exception {
-		try {
-			System.out.println(user);
-			carService.signup(user);
-			return "redirect:/moveLogin";
-		}catch(Exception e) {
-			throw new Exception("회원가입 실패");
-		}
 	}
 	
 	@ExceptionHandler(Exception.class)

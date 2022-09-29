@@ -23,7 +23,6 @@
 }
 td input{
 	height: 25px;
-	width: 
 }
 
 #btn{
@@ -40,7 +39,6 @@ td input{
 	background-color: navy;
  	color: white;
  	border-radius: 10px;
- 	width: 150px;
 }
 .selec{
 	width: 170px;
@@ -52,11 +50,6 @@ table{
 	margin: auto;
 }
 </style>
-<script type="text/javascript">
-	function goMain(){
-		location.href = '/';
-	}
-</script>
 </head>
 <body>
 	<div id="head">	
@@ -76,7 +69,7 @@ table{
 			</table>
 			<div id="btn">
 				<input type="submit" value="로그인" />
-				<input type="button" value="취소" onclick="goMain()" />
+				<input type="button" value="취소" />
 			</div>
 		</form>
 	</div>
