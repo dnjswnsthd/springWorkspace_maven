@@ -25,6 +25,7 @@
 		<a href="moveCar">차량 등록</a><br><br>
 		<a href="moveCarList">차량 목록</a><br><br>
 		<a href="moveLogin">로그인</a><br><br>
+		<a href="moveSignup">회원가입</a><br><br>
 	</div>
 </body>
 </html>

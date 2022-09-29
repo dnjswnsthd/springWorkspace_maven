@@ -48,4 +48,9 @@ public class CarDAOImpl implements CarDAO {
 		return sqlSession.getMapper(CarDAO.class).selectUser(user);
 	}
 
+	@Override
+	public int signup(Us user) throws SQLException {
+		return sqlSession.getMapper(CarDAO.class).signup(user);
+	}
+
 }

@@ -60,10 +60,10 @@ table{
 </head>
 <body>
 	<div id="head">	
-		<h2>로그인</h2>
+		<h2>회원가입</h2>
 	</div>
 	<div>
-		<form method="post" action="login.do">
+		<form method="post" action="signup.do">
 			<table>
 				<tr>
 					<td id="tag">아이디</td>
@@ -75,7 +75,7 @@ table{
 				</tr>
 			</table>
 			<div id="btn">
-				<input type="submit" value="로그인" />
+				<input type="submit" value="회원가입" />
 				<input type="button" value="취소" onclick="goMain()" />
 			</div>
 		</form>

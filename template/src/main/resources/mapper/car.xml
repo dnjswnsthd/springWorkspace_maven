@@ -49,7 +49,7 @@
 	
 	<update id="updateCar" parameterType="car">
 		UPDATE car
-		SET	model = #{model}, price = #{price} 
+		SET	model = #{model}, price = #{price}, vcode = #{vcode}
 		WHERE num = #{num}
 	</update>
 	
@@ -58,4 +58,9 @@
 		from us
 		where id = #{id} and pw = #{pw}
 	</select>
+	
+	<insert id="signup" parameterType="us">
+		INSERT INTO us(id, pw)
+		VALUES(#{id}, #{pw})
+	</insert>
 </mapper>

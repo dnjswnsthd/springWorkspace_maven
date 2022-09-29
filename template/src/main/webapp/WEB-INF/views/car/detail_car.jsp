@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -82,7 +83,21 @@ table{
 					</tr>
 					<tr>
 						<td id="tag">제 조 사</td>
-						<td><input type="text" id="vendor" name="vendor" value="${car.company.vendor}" readonly="readonly"/></td>
+						<td>
+							<select class="selec" name="vcode" id="vcode">
+								<c:forEach var="item" items="${list}">
+									<c:choose>
+										<c:when test="${item.vcode == car.vcode }">
+											<option value="${item.vcode}" title="${item.vcode}" selected="selected">${item.vendor}</option>
+										</c:when>
+										<c:otherwise>
+											<option value="${item.vcode}" title="${item.vcode}">${item.vendor}</option>
+										</c:otherwise>
+									</c:choose>
+								</c:forEach>
+							</select>
+						</td>
+						<%-- <td><input type="text" id="vendor" name="vendor" value="${car.company.vendor}" readonly="readonly"/></td> --%>
 					</tr>
 			</table>
 			<div id="btn">

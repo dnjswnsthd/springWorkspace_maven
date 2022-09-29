@@ -49,7 +49,7 @@
 	
 	<update id="updateCar" parameterType="car">
 		UPDATE car
-		SET	model = #{model}, price = #{price} 
+		SET	model = #{model}, price = #{price}, vcode = #{vcode}
 		WHERE num = #{num}
 	</update>
 	

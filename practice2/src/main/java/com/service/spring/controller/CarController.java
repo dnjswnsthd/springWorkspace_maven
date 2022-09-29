@@ -100,7 +100,11 @@ public class CarController {
 	@GetMapping("detail.do")
 	public String detailCar(Model model, Car car) throws Exception {
 		try {
-			model.addAttribute("car", carService.selectCar(car.getNum()));
+			ArrayList <Company> al = companyService.selectCompany();
+			model.addAttribute("list", al);
+			Car tmp = carService.selectCar(car.getNum());
+			model.addAttribute("car", tmp);
+			System.out.println(tmp);
 			return "/car/detail_car";
 		} catch (Exception e) {
 			throw new Exception("차량 상세 조회에 실패했습니다.");
@@ -147,7 +151,7 @@ public class CarController {
 			carService.signup(user);
 			return "redirect:/moveLogin";
 		}catch(Exception e) {
-			throw new Exception("회원가입 실패");
+			throw new Exception("회원가입 실패(id 중복)");
 		}
 	}
 	
