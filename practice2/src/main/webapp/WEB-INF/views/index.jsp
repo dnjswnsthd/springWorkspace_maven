@@ -24,6 +24,7 @@
 		<h2>메인 페이지</h2>
 		<a href="moveCar">차량 등록</a><br><br>
 		<a href="moveCarList">차량 목록</a><br><br>
+		<a href="moveLogin">로그인</a><br><br>
 	</div>
 </body>
 </html>

@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.service.spring.model.Car;
+import com.service.spring.model.Us;
 import com.service.spring.model.dao.CarDAO;
 import com.service.spring.model.service.CarService;
 
@@ -39,6 +40,11 @@ public class CarServiceImpl implements CarService {
 	@Override
 	public int updateCar(Car car) throws SQLException {
 		return carDAO.updateCar(car);
+	}
+
+	@Override
+	public Us selectUser(Us user) throws SQLException {
+		return carDAO.selectUser(user);
 	}
 
 }

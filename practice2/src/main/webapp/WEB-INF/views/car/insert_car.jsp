@@ -28,6 +28,10 @@ td input{
 #btn{
 	text-align: center;
 	margin-top: 1%;
+	border: 1px solid black;
+	border-radius: 10px;
+	width: 80%;
+	margin: auto;
 }
 #btn input{
 	padding: 10px;
@@ -35,19 +39,22 @@ td input{
 	background-color: navy;
  	color: white;
  	border-radius: 10px;
+ 	width: 250px;
 }
 .selec{
 	width: 170px;
 	height: 30px;
 }
 table{
-	width: 80%;
+	width: 50%;
 	border : 1px solid black;
 	margin: auto;
+	margin-bottom: 1%;
 }
 </style>
 </head>
 <body>
+	<jsp:include page="../header.jsp"></jsp:include>
 	<div id="head">	
 		<h2>자동차 관리 - 자동차 등록</h2>
 	</div>

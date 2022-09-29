@@ -3,7 +3,7 @@ package com.service.spring.controller;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,6 +17,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.service.spring.model.Car;
 import com.service.spring.model.Company;
+import com.service.spring.model.Us;
 import com.service.spring.model.service.CarService;
 import com.service.spring.model.service.CompanyService;
 @Controller
@@ -51,6 +52,11 @@ public class CarController {
 		} catch (Exception e) {
 			throw new Exception("차량 목록 조회에 실패했습니다.");
 		}
+	}
+	
+	@GetMapping("/moveLogin")
+	public String moveLogin() throws Exception {
+		return "login";
 	}
 	
 	@PostMapping("insertCar.do")
@@ -106,6 +112,27 @@ public class CarController {
 		} catch (Exception e) {
 			throw new Exception("차량 정보 수정에 실패했습니다.");
 		}
+	}
+	
+	@PostMapping("login.do")
+	public String doLogin(Us user, Model model, HttpSession session) throws Exception {
+		try {
+			Us tmp = carService.selectUser(user);
+			if(tmp != null) {
+				session.setAttribute("user", user);
+				return "redirect:/moveCarList";
+			}else {
+				return "login";
+			}
+		}catch(Exception e) {
+			throw new Exception("로그인 실패");
+		}
+	}
+	
+	@GetMapping("logout.do")
+	public String doLogout(HttpSession session) throws Exception{
+		session.invalidate();
+		return "redirect:/";
 	}
 	
 	@ExceptionHandler(Exception.class)

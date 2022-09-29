@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.service.spring.model.Car;
+import com.service.spring.model.Us;
 
 public interface CarDAO {
 	// 차량 추가
@@ -17,4 +18,6 @@ public interface CarDAO {
 	public int deleteCar(List <String> num) throws SQLException;
 	// 차량 수정
 	public int updateCar(Car car) throws SQLException;
+	// 로그인
+	public Us selectUser(Us user) throws SQLException;
 }

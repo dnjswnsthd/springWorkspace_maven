@@ -52,4 +52,10 @@
 		SET	model = #{model}, price = #{price} 
 		WHERE num = #{num}
 	</update>
+	
+	<select id="selectUser" parameterType="us" resultType="us">
+		select id, pw
+		from us
+		where id = #{id} and pw = #{pw}
+	</select>
 </mapper>

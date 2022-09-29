@@ -64,6 +64,7 @@ table {
 </script>
 </head>
 <body>
+	<jsp:include page="../header.jsp"></jsp:include>
 	<div id="head">	
 		<h2>사원 관리 - 사원 등록</h2>
 	</div>

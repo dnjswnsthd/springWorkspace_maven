@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.service.spring.model.Car;
+import com.service.spring.model.Us;
 import com.service.spring.model.dao.CarDAO;
 
 @Repository
@@ -40,6 +41,11 @@ public class CarDAOImpl implements CarDAO {
 	@Override
 	public int updateCar(Car car) throws SQLException {
 		return sqlSession.getMapper(CarDAO.class).updateCar(car);
+	}
+
+	@Override
+	public Us selectUser(Us user) throws SQLException {
+		return sqlSession.getMapper(CarDAO.class).selectUser(user);
 	}
 
 }
