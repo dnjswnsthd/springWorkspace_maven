@@ -1,25 +1,25 @@
 package com.service.spring.model;
 
-public class Car {
+public class Temp {
 	private String num;
 	private String model;
 	private int price;
 	private String vcode;
 	private Company company;
 
-	public Car() {
+	public Temp() {
 		super();
 	}
- 
-	public Car(String num, String model, int price, String vcode) {
+
+	public Temp(String num, String model, int price, String vcode) {
 		super();
 		this.num = num;
 		this.model = model;
 		this.price = price;
 		this.vcode = vcode;
 	}
-	
-	public Car(String num, String model, int price, String vcode, Company company) {
+
+	public Temp(String num, String model, int price, String vcode, Company company) {
 		super();
 		this.num = num;
 		this.model = model;

@@ -52,4 +52,9 @@ public class CarServiceImpl implements CarService {
 		return carDAO.signup(user);
 	}
 
+	@Override
+	public ArrayList<Car> selectCar(Car car) throws SQLException {
+		return carDAO.selectCar(car);
+	}
+
 }

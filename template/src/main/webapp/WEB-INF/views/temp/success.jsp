@@ -35,7 +35,7 @@ a:link{
 		<h2>자동차 관리 - ${num } ${title }</h2>
 	</div>
 	<div id="move">
-		<a href="moveCarList">자동차 목록 조회</a>
+		<a href="moveTempList">자동차 목록 조회</a>
 	</div>
 </body>
 </html>

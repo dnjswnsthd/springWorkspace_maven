@@ -7,4 +7,10 @@
 		select vcode, vendor
 		from company
 	</select>
+	
+	<select id="selectVcode" parameterType="string" resultType="string">
+		select vcode
+		from company
+		where vendor = #{vendor}
+	</select>
 </mapper>

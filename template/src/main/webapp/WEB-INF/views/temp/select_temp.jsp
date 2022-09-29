@@ -43,7 +43,7 @@ table {
 </style>
 <script>
 	$(function(){
-		$('#carDelete').click(function() {
+		$('#tempDelete').click(function() {
 			var param="";
 			$(":checkbox:checked").each(function(index, item) {
 				param = param + "&num=" + $(item).attr("data-num");
@@ -51,7 +51,7 @@ table {
 			
 			$.ajax({
 				type:'post',
-				url:'deleteCar.do',
+				url:'deleteTemp.do',
 				data:param,
 				
 				success:function(result) {
@@ -76,19 +76,19 @@ table {
 			<th>제조사명</th>
 			<th>삭제</th>
 		</tr>
-		<c:forEach items="${car}" var="car">
+		<c:forEach items="${temp}" var="temp">
 			<tr>
-				<td><a href="detail.do?num=${car.num}">${car.num}</a></td>
-				<td>${car.model}</td>
-				<td>${car.price}</td>
-				<td>${car.company.vendor}</td>
-				<td><input type="checkbox" data-num="${car.num}"></td>
+				<td><a href="detail.do?num=${temp.num}">${temp.num}</a></td>
+				<td>${temp.model}</td>
+				<td>${temp.price}</td>
+				<td>${temp.company.vendor}</td>
+				<td><input type="checkbox" data-num="${temp.num}"></td>
 			</tr>
 		</c:forEach>
 	</table>
 	<div id="foot">
-		<a href="/moveCar">추가 등록</a>
-		<a href="#" id="carDelete">선택항목삭제</a>
+		<a href="/moveTemp">추가 등록</a>
+		<a href="#" id="tempDelete">선택항목삭제</a>
 	</div>
 </body>
 </html>

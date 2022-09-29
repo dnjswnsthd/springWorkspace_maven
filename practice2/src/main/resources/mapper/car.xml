@@ -19,14 +19,20 @@
 		VALUES(#{num}, #{model}, #{price}, #{vcode})
 	</insert>
 	
-	<select id="selectCar" parameterType="string" resultMap="carWithCompany">
+	<select id="selectCar" parameterType="car" resultMap="carWithCompany">
 		SELECT c.num, c.model, c.price, c.vcode, co.vendor
 		FROM car c
 		JOIN
 		company co on (c.vcode = co.vcode)
 		<where>
 			<if test="num != null">
-				num = #{num}
+				c.num = #{num}
+			</if>
+			<if test="model != null">
+				c.model like '%'||#{model}||'%'
+			</if>
+			<if test="vcode != null">
+				c.vcode like '%' ||#{vcode}|| '%'
 			</if>
 		</where>
 	</select>

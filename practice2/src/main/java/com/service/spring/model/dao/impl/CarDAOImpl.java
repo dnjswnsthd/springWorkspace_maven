@@ -53,4 +53,9 @@ public class CarDAOImpl implements CarDAO {
 		return sqlSession.getMapper(CarDAO.class).signup(user);
 	}
 
+	@Override
+	public ArrayList<Car> selectCar(Car car) throws SQLException {
+		return sqlSession.getMapper(CarDAO.class).selectCar(car);
+	}
+
 }

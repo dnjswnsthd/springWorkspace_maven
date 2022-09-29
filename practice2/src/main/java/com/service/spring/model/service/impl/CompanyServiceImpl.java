@@ -21,4 +21,8 @@ public class CompanyServiceImpl implements CompanyService {
 		return companyDAO.selectCompany();
 	}
 
+	@Override
+	public String selectVcode(String vendor) {
+		return companyDAO.selectVcode(vendor);
+	}
 }

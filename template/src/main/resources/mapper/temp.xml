@@ -2,8 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="com.service.spring.model.dao.CarDAO">
-	<resultMap type="car" id="carWithCompany">
+<mapper namespace="com.service.spring.model.dao.TempDAO">
+	<resultMap type="temp" id="tempWithCompany">
 		<id column="num" property="num" />
 		<result column="model" property="model" />
 		<result column="price" property="price" />
@@ -14,14 +14,14 @@
 		</association>
 	</resultMap>
 
-	<insert id="insertCar" parameterType="car">
-		INSERT INTO car(num, model, price, vcode)
+	<insert id="insertTemp" parameterType="temp">
+		INSERT INTO temp(num, model, price, vcode)
 		VALUES(#{num}, #{model}, #{price}, #{vcode})
 	</insert>
 	
-	<select id="selectCar" parameterType="string" resultMap="carWithCompany">
+	<select id="selectTemp" parameterType="string" resultMap="tempWithCompany">
 		SELECT c.num, c.model, c.price, c.vcode, co.vendor
-		FROM car c
+		FROM temp c
 		JOIN
 		company co on (c.vcode = co.vcode)
 		<where>
@@ -31,24 +31,24 @@
 		</where>
 	</select>
 	
-	<select id="selectCarByNum" parameterType="String" resultMap="carWithCompany">
+	<select id="selectTempByNum" parameterType="String" resultMap="tempWithCompany">
 		SELECT c.num, c.model, c.price, c.vcode, co.vendor 
-		FROM car c JOIN
+		FROM temp c JOIN
 		company co on (c.vcode = co.vcode)
 		WHERE c.num = #{num}
 	</select>
 	
-	<delete id="deleteCar" parameterType="list">
+	<delete id="deleteTemp" parameterType="list">
 		delete
-		from car
+		from temp
 		where num in
 		<foreach collection="list" item="num" open="(" close=")" separator=",">
 			#{num}
 		</foreach>
 	</delete>
 	
-	<update id="updateCar" parameterType="car">
-		UPDATE car
+	<update id="updateTemp" parameterType="temp">
+		UPDATE temp
 		SET	model = #{model}, price = #{price}, vcode = #{vcode}
 		WHERE num = #{num}
 	</update>

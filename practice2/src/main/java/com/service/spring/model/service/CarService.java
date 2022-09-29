@@ -22,4 +22,6 @@ public interface CarService {
 	public Us selectUser(Us user) throws SQLException;
 	// 회원가입
 	public int signup(Us user) throws SQLException;
+	// 검색
+	public ArrayList<Car> selectCar(Car car) throws SQLException;
 }

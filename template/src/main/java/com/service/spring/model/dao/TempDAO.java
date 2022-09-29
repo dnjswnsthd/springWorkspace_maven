@@ -4,20 +4,20 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.service.spring.model.Car;
+import com.service.spring.model.Temp;
 import com.service.spring.model.Us;
 
-public interface CarDAO {
+public interface TempDAO {
 	// 차량 추가
-	public int insertCar(Car car) throws SQLException;
+	public int insertTemp(Temp temp) throws SQLException;
 	// 차량 조회 
-	public ArrayList<Car> selectCar() throws SQLException;
+	public ArrayList<Temp> selectTemp() throws SQLException;
 	// 차량 정보 상세 보기
-	public Car selectCar(String num) throws SQLException;
+	public Temp selectTemp(String num) throws SQLException;
 	// 차량 삭제
-	public int deleteCar(List <String> num) throws SQLException;
+	public int deleteTemp(List <String> num) throws SQLException;
 	// 차량 수정
-	public int updateCar(Car car) throws SQLException;
+	public int updateTemp(Temp temp) throws SQLException;
 	// 로그인
 	public Us selectUser(Us user) throws SQLException;
 	// 회원가입

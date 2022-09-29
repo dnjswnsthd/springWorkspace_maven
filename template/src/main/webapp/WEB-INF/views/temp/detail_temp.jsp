@@ -53,8 +53,8 @@ table{
 }
 </style>
 <script type="text/javascript">
-	function goSelectCar(){
-		location.href = '/moveCarList';
+	function goSelectTemp(){
+		location.href = '/moveTempList';
 	}
 	function goMain(){
 		location.href = '/';
@@ -71,15 +71,15 @@ table{
 			<table>
 					<tr>
 						<td id="tag">차량번호</td>
-						<td><input type="text" id="num" name="num" value="${car.num}" readonly="readonly"/></td>
+						<td><input type="text" id="num" name="num" value="${temp.num}" readonly="readonly"/></td>
 					</tr>
 					<tr>
 						<td id="tag">모 델 명</td>
-						<td><input type="text" id="model" name="model" value="${car.model}"/></td>
+						<td><input type="text" id="model" name="model" value="${temp.model}"/></td>
 					</tr>
 					<tr>
 						<td id="tag">가 격</td>
-						<td><input type="text" id="price" name="price" value="${car.price}"/></td>
+						<td><input type="text" id="price" name="price" value="${temp.price}"/></td>
 					</tr>
 					<tr>
 						<td id="tag">제 조 사</td>
@@ -87,7 +87,7 @@ table{
 							<select class="selec" name="vcode" id="vcode">
 								<c:forEach var="item" items="${list}">
 									<c:choose>
-										<c:when test="${item.vcode == car.vcode }">
+										<c:when test="${item.vcode == temp.vcode }">
 											<option value="${item.vcode}" title="${item.vcode}" selected="selected">${item.vendor}</option>
 										</c:when>
 										<c:otherwise>
@@ -97,12 +97,12 @@ table{
 								</c:forEach>
 							</select>
 						</td>
-						<%-- <td><input type="text" id="vendor" name="vendor" value="${car.company.vendor}" readonly="readonly"/></td> --%>
+						<%-- <td><input type="text" id="vendor" name="vendor" value="${temp.company.vendor}" readonly="readonly"/></td> --%>
 					</tr>
 			</table>
 			<div id="btn">
-				<input type="submit" value="수정" formaction="updateCar.do" />
-				<input type="button" value="차량목록" onclick="goSelectCar()">
+				<input type="submit" value="수정" formaction="updateTemp.do" />
+				<input type="button" value="차량목록" onclick="goSelectTemp()">
 				<input type="button" value="메인페이지로" onclick="goMain()">
 			</div>
 		</form>

@@ -59,25 +59,24 @@ table{
 		<h2>자동차 관리 - 자동차 등록</h2>
 	</div>
 	<div>
-		<form method="post" action="insertCar.do">
+		<form method="post" action="insertTemp.do">
 			<table>
 				<tr>
 					<td id="tag">차량번호</td>
-					<td><input type="text" id="num" name="num"/></td>
+					<td><input type="text" id="num" name="num" required="required"/></td>
 				</tr>
 				<tr>
 					<td id="tag">모 델 명</td>
-					<td><input type="text" id="model" name="model"/></td>
+					<td><input type="text" id="model" name="model" required="required"/></td>
 				</tr>
 				<tr>
 					<td id="tag">가격</td>
-					<td><input type="text" id="price" name="price"/> 만원</td>
+					<td><input type="text" id="price" name="price" required="required"/> 만원</td>
 				</tr>
 				<tr>
 					<td id="tag">제조사코드</td>
 					<td>
-						<select class="selec" name="vcode" id="vcode">
-							<option value="0">제조사 코드</option>
+						<select class="selec" name="vcode" id="vcode" required="required">
 							<c:forEach var="item" items="${list}">
 								<option value="${item.vcode}"
 								title="${item.vcode}">${item.vendor}</option>

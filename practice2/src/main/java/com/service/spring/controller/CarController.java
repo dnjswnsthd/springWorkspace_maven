@@ -99,16 +99,16 @@ public class CarController {
 	// 동적 쿼리로 수정
 	@GetMapping("detail.do")
 	public String detailCar(Model model, Car car) throws Exception {
-		try {
+		/* try { */
+			System.out.println(car);
 			ArrayList <Company> al = companyService.selectCompany();
 			model.addAttribute("list", al);
-			Car tmp = carService.selectCar(car.getNum());
-			model.addAttribute("car", tmp);
-			System.out.println(tmp);
+			model.addAttribute("car", carService.selectCar(car).get(0)); 
+		 
 			return "/car/detail_car";
-		} catch (Exception e) {
+/*		} catch (Exception e) {
 			throw new Exception("차량 상세 조회에 실패했습니다.");
-		}
+		}*/
 	}
 	
 	@PostMapping("updateCar.do")
@@ -120,6 +120,23 @@ public class CarController {
 			return "redirect:/success";
 		} catch (Exception e) {
 			throw new Exception("차량 정보 수정에 실패했습니다.");
+		}
+	}
+	
+	@PostMapping("search.do")
+	public String searchCar(Model model, String contentKey, String contentValue) throws Exception {
+		try {
+			System.out.println(contentKey);
+			System.out.println(contentValue);
+			Car car = new Car();
+			if(contentKey.equals("num")) car.setNum(contentValue);
+			else if(contentKey.equals("model")) car.setModel(contentValue);
+			else if(contentKey.equals("vendor")) car.setVcode(companyService.selectVcode(contentValue));
+			ArrayList<Car> al = carService.selectCar(car);
+			model.addAttribute("car", al);
+			return "/car/select_car";
+		}catch(Exception e) { 
+			throw new Exception("차량 검색에 실패했습니다.");
 		}
 	}
 	

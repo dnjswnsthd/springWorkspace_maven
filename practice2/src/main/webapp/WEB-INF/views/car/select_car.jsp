@@ -37,9 +37,23 @@ table {
  	text-align: center;
  }
  #foot a{
-
  	padding-left : 20px;
  }
+ #search{
+ 	text-align: right;
+ 	margin-right: 10%;
+ 	margin-bottom: 1%;
+ }
+ #search input[type=text]{
+ 	height: 25px;
+ }
+ #search input[type=submit]{
+ 	height: 30px;
+ }
+ .selec{
+	width: 170px;
+	height: 30px;
+}
 </style>
 <script>
 	$(function(){
@@ -67,6 +81,18 @@ table {
 	<jsp:include page="../header.jsp"></jsp:include>
 	<div id="head">	
 		<h2>사원 관리 - 사원 등록</h2>
+	</div>
+	<div id="search">
+		<p>모델번호는 전체 입력, 나머지 조건은 포함하는 값을 찾아옵니다</p>
+		<form method="post" action="search.do">
+			<select class="selec" name="contentKey" id="contentKey">							
+				<option value="num">모델번호</option>
+				<option value="model" selected="selected">모델이름</option>
+				<option value="vendor">제조사명</option>
+			</select>
+			<input type="text" id="contentValue" name="contentValue" placeholder="검색어를 입력해주세요"/>
+			<input type="submit" value="검색" />
+		</form>
 	</div>
 	<table>
 		<tr>

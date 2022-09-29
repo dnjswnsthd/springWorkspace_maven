@@ -22,4 +22,9 @@ public class CompanyDAOImpl implements CompanyDAO {
 		return sqlSession.getMapper(CompanyDAO.class).selectCompany();
 	}
 
+	@Override
+	public String selectVcode(String vendor) {
+		return sqlSession.getMapper(CompanyDAO.class).selectVcode(vendor);
+	}
+
 }

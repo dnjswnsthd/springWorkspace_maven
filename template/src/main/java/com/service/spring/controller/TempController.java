@@ -15,15 +15,15 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import com.service.spring.model.Car;
+import com.service.spring.model.Temp;
 import com.service.spring.model.Company;
 import com.service.spring.model.Us;
-import com.service.spring.model.service.CarService;
+import com.service.spring.model.service.TempService;
 import com.service.spring.model.service.CompanyService;
 @Controller
-public class CarController {
+public class TempController {
 	@Autowired
-	private CarService carService;
+	private TempService tempService;
 	@Autowired
 	private CompanyService companyService;
 	
@@ -32,23 +32,23 @@ public class CarController {
 		return "index";
 	}
 	
-	@GetMapping("/moveCar")
-	public String moveCar(Model model) throws Exception {
+	@GetMapping("/moveTemp")
+	public String moveTemp(Model model) throws Exception {
 		try {
 			ArrayList <Company> al = companyService.selectCompany();
 			model.addAttribute("list", al);
-			return "/car/insert_car";
+			return "/temp/insert_temp";
 		} catch (Exception e) {
 			throw new Exception("회사 목록 조회에 실패했습니다.");
 		}
 	}
 	
-	@GetMapping("/moveCarList")
-	public String moveCarList(Model model) throws Exception {
+	@GetMapping("/moveTempList")
+	public String moveTempList(Model model) throws Exception {
 		try {
-			ArrayList<Car> al = carService.selectCar();
-			model.addAttribute("car", al);
-			return "/car/select_car";
+			ArrayList<Temp> al = tempService.selectTemp();
+			model.addAttribute("temp", al);
+			return "/temp/select_temp";
 		} catch (Exception e) {
 			throw new Exception("차량 목록 조회에 실패했습니다.");
 		}
@@ -64,12 +64,12 @@ public class CarController {
 		return "login";
 	}
 	
-	@PostMapping("insertCar.do")
-	public String insertCar(Model model, Car car, RedirectAttributes ra) throws Exception {
+	@PostMapping("insertTemp.do")
+	public String insertTemp(Model model, Temp temp, RedirectAttributes ra) throws Exception {
 		try {
-			carService.insertCar(car);
+			tempService.insertTemp(temp);
 			ra.addAttribute("title", "추가 성공");
-			ra.addAttribute("num", car.getNum());
+			ra.addAttribute("num", temp.getNum());
 			return "redirect:/success";
 		} catch (Exception e) {
 			throw new Exception("차량 추가에 실패했습니다.(중복 or 데이터 누락)");
@@ -80,16 +80,16 @@ public class CarController {
 	public String moveInsertSuccess(@RequestParam("num") String num, @RequestParam("title") String title, Model model) {
 		model.addAttribute("title", title);
 		model.addAttribute("num", num);
-		return "/car/success";
+		return "/temp/success";
 	}
 	
-	@PostMapping("deleteCar.do")
+	@PostMapping("deleteTemp.do")
 	@ResponseBody
-	public String deleteCar(@RequestParam List<String> num, Model model) throws Exception {
+	public String deleteTemp(@RequestParam List<String> num, Model model) throws Exception {
 		List <String> temp = new ArrayList<String>();
 		try {
 			for(String n : num) temp.add(n);
-			carService.deleteCar(temp);
+			tempService.deleteTemp(temp);
 			return "";
 		} catch (Exception e) {
 			throw new Exception("차량 삭제에 실패했습니다.");
@@ -98,25 +98,25 @@ public class CarController {
 	
 	// 동적 쿼리로 수정
 	@GetMapping("detail.do")
-	public String detailCar(Model model, Car car) throws Exception {
+	public String detailTemp(Model model, Temp temp) throws Exception {
 		try {
 			ArrayList <Company> al = companyService.selectCompany();
 			model.addAttribute("list", al);
-			Car tmp = carService.selectCar(car.getNum());
-			model.addAttribute("car", tmp);
+			Temp tmp = tempService.selectTemp(temp.getNum());
+			model.addAttribute("temp", tmp);
 			System.out.println(tmp);
-			return "/car/detail_car";
+			return "/temp/detail_temp";
 		} catch (Exception e) {
 			throw new Exception("차량 상세 조회에 실패했습니다.");
 		}
 	}
 	
-	@PostMapping("updateCar.do")
-	public String updateCar(Model model, Car car, RedirectAttributes ra) throws Exception {
+	@PostMapping("updateTemp.do")
+	public String updateTemp(Model model, Temp temp, RedirectAttributes ra) throws Exception {
 		try {
-			carService.updateCar(car);
+			tempService.updateTemp(temp);
 			ra.addAttribute("title", "수정 성공");
-			ra.addAttribute("num", car.getNum());
+			ra.addAttribute("num", temp.getNum());
 			return "redirect:/success";
 		} catch (Exception e) {
 			throw new Exception("차량 정보 수정에 실패했습니다.");
@@ -126,10 +126,10 @@ public class CarController {
 	@PostMapping("login.do")
 	public String doLogin(Us user, Model model, HttpSession session) throws Exception {
 		try {
-			Us tmp = carService.selectUser(user);
+			Us tmp = tempService.selectUser(user);
 			if(tmp != null) {
 				session.setAttribute("user", user);
-				return "redirect:/moveCarList";
+				return "redirect:/moveTempList";
 			}else {
 				return "login";
 			}
@@ -148,7 +148,7 @@ public class CarController {
 	public String doSignup(Us user) throws Exception {
 		try {
 			System.out.println(user);
-			carService.signup(user);
+			tempService.signup(user);
 			return "redirect:/moveLogin";
 		}catch(Exception e) {
 			throw new Exception("회원가입 실패(id 중복)");
