@@ -5,6 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <link href="/resources/common.css" rel="stylesheet" />
 <style type="text/css">
 #head{
@@ -56,6 +57,12 @@ table{
 	function goMain(){
 		location.href = '/';
 	}
+	$(function(){
+		var msg = "${msg}"
+		if(msg != null && msg != ''){
+			alert(msg);
+		}
+	})
 </script>
 </head>
 <body>

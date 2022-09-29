@@ -148,6 +148,7 @@ public class CarController {
 				session.setAttribute("user", user);
 				return "redirect:/moveCarList";
 			}else {
+				model.addAttribute("msg", "로그인에 실패하였습니다.");
 				return "login";
 			}
 		}catch(Exception e) {

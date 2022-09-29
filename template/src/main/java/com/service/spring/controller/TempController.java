@@ -32,6 +32,12 @@ public class TempController {
 		return "index";
 	}
 	
+	@GetMapping("/moveMenu")
+	public String moveMenu() {
+		System.out.println("####");
+		return "menu";
+	}
+	
 	@GetMapping("/moveTemp")
 	public String moveTemp(Model model) throws Exception {
 		try {
@@ -129,8 +135,9 @@ public class TempController {
 			Us tmp = tempService.selectUser(user);
 			if(tmp != null) {
 				session.setAttribute("user", user);
-				return "redirect:/moveTempList";
+				return "redirect:/moveMenu";
 			}else {
+				model.addAttribute("msg", "로그인에 실패하였습니다.");
 				return "login";
 			}
 		}catch(Exception e) {

@@ -20,10 +20,11 @@
 </style>
 </head>
 <body>
+	<jsp:include page="header.jsp"></jsp:include>
 	<div id="mp">
-		<h2>메인 페이지</h2>
-		<a href="moveLogin">로그인</a><br><br>
-		<a href="moveSignup">회원가입</a><br><br>
+		<h2>메뉴 페이지</h2>
+		<a href="moveTemp">차량 등록</a><br><br>
+		<a href="moveTempList">차량 목록</a><br><br>
 	</div>
 </body>
 </html>
