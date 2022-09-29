@@ -34,7 +34,6 @@ public class TempController {
 	
 	@GetMapping("/moveMenu")
 	public String moveMenu() {
-		System.out.println("####");
 		return "menu";
 	}
 	

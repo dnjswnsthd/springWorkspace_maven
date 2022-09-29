@@ -37,12 +37,12 @@
 		</where>
 	</select>
 	
-	<select id="selectCarByNum" parameterType="String" resultMap="carWithCompany">
+<!--<select id="selectCarByNum" parameterType="String" resultMap="carWithCompany">
 		SELECT c.num, c.model, c.price, c.vcode, co.vendor 
 		FROM car c JOIN
 		company co on (c.vcode = co.vcode)
 		WHERE c.num = #{num}
-	</select>
+	</select> -->
 	
 	<delete id="deleteCar" parameterType="list">
 		delete

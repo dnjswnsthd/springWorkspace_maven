@@ -51,6 +51,10 @@ table{
 	margin: auto;
 	margin-bottom: 1%;
 }
+#foot{
+	text-align: center;
+	margin-top: 1%;
+}
 </style>
 <script type="text/javascript">
 	function goSelectCar(){
@@ -59,12 +63,21 @@ table{
 	function goMain(){
 		location.href = '/';
 	}
+	function goCart(){
+		location.href = '/moveCart';
+	}
+	$(function () {
+        // 찜하기
+        $("[name=cartinsert]").click(function () {
+          localStorage.setItem($(this).attr("id"), $(this).val());
+        });
+      });
 </script>
 </head>
 <body>
 	<jsp:include page="../header.jsp"></jsp:include>
 	<div id="head">	
-		<h2>사원 관리 - 사원 상세정보</h2>
+		<h2>차량 관리 - 차량 상세정보</h2>
 	</div>
 	<div>
 		<form method="post">
@@ -104,8 +117,12 @@ table{
 				<input type="submit" value="수정" formaction="updateCar.do" />
 				<input type="button" value="차량목록" onclick="goSelectCar()">
 				<input type="button" value="메인페이지로" onclick="goMain()">
+				<input type="button" value="장바구니" onclick="goCart()">
 			</div>
 		</form>
+		<div id="foot">
+			<button name="cartinsert" id="${car.num}" value="${car.num}, ${car.model}, ${car.price}"><b>찜 하기</b></button>
+		</div>
 	</div>
 	
 </body>

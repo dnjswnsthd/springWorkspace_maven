@@ -87,7 +87,7 @@ table{
 			</table>
 			<div id="btn">
 				<input type="submit" value="자동차등록" />
-				<input type="button" value="취소" />
+				<input type="reset" value="취소" />
 			</div>
 		</form>
 	</div>

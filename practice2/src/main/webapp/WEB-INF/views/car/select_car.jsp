@@ -115,6 +115,7 @@ table {
 	<div id="foot">
 		<a href="/moveCar">추가 등록</a>
 		<a href="#" id="carDelete">선택항목삭제</a>
+		<a href="/moveCarList">전체 조회</a>
 	</div>
 </body>
 </html>
