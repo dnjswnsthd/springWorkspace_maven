@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.service.spring.model.dao.CompanyDAO">
+	<select id="selectCompany" resultType="company">
+		select vcode, vendor
+		from company
+	</select>
+	
+	<select id="selectVcode" parameterType="string" resultType="string">
+		select vcode
+		from company
+		where vendor = #{vendor}
+	</select>
+</mapper>

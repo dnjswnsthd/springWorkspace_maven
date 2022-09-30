@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.service.spring.model.dao.ProductDAO">
+	<insert id="insertProduct" parameterType="product">
+		INSERT INTO product(code, title, category, rate, memo)
+		VALUES(#{code}, #{title}, #{category}, #{rate}, #{memo})
+	</insert>
+	
+	<select id="selectProduct" parameterType="product" resultType="product">
+		SELECT code, title, category, rate, memo
+		FROM product
+		<where>
+			<if test="code != null">
+				code = #{code}
+			</if>
+			<if test="title != null">
+				title like '%'||#{title}||'%'
+			</if>
+			<if test="category != null">
+				category like '%' ||#{category}|| '%'
+			</if>
+		</where>
+	</select>
+	
+	<delete id="deleteProduct" parameterType="string">
+		delete
+		from product
+		where 
+			code = #{code}
+	</delete>
+	
+	<update id="updateCar" parameterType="car">
+		UPDATE car
+		SET	model = #{model}, price = #{price}, vcode = #{vcode}
+		WHERE num = #{num}
+	</update>
+	
+	<select id="selectUser" parameterType="userinfo" resultType="userinfo">
+		select id, pw
+		from userinfo
+		where id = #{id} and pw = #{pw}
+	</select>
+	
+	<insert id="signup" parameterType="userinfo">
+		INSERT INTO userinfo(id, pw)
+		VALUES(#{id}, #{pw})
+	</insert>
+</mapper>
